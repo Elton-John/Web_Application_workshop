@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html lang="en">
+
 <head>
 
   <meta charset="utf-8">
@@ -13,15 +14,11 @@
   <title>SB Admin 2 - Dashboard</title>
 
   <!-- Custom fonts for this template-->
-<%--  <link href="../theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">--%>
-    <link href="<c:url value="/theme/vendor/fontawesome-free/css/all.min.css"/>" rel="stylesheet" type="text/css">
-
-  <link href="<c:url value="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"/>" rel="stylesheet">
+  <link href="/theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-<%--  <link href="../theme/css/sb-admin-2.min.css" rel="stylesheet">--%>
-      <link href="<c:url value="/theme/css/sb-admin-2.min.css"/>" rel="stylesheet">
-
+  <link href="<c:url value="/theme/css/sb-admin-2.min.css"/>" rel="stylesheet">
 
 </head>
 
@@ -34,7 +31,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<c:url value="/users/list.jsp"/>">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href=/users/list.jsp">
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
@@ -46,7 +43,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="<c:url value="/users/list.jsp"/>">
+        <a class="nav-link" href="/users/list.jsp">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -339,12 +336,34 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Users CRUD</h1>
-            <a href="/users/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Add new user</a>
+            <a href="/user/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Add new user</a>
           </div>
 
 
+<%--Wyświetlanie listy użytkowników--%>
+<c:forEach items="${users}" var="user">
+  <p>
+  <c:out value="${user.id}"></c:out>
+    <c:out value="${user.username}"></c:out>
+    <c:out value="${user.email}"></c:out>
 
+  <form action="/user/delete" method="post">
+    <input type="hidden" name="id" value="${user.id}">
+    <button type="submit">Usuń</button>
+  </form>
 
+    <form action="/user/edit" method="post">
+  <input type="hidden" name="id" value="${user.id}">
+  <button type="submit">Edytuj</button>
+</form>
+
+  <form action="/user/read" method="post">
+    <input type="hidden" name="user" value="${user}">
+    <button type="submit">Pokaż</button>
+  </form>
+
+  </p>
+</c:forEach>
 
 
 
@@ -677,32 +696,28 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="<c:url value="/users/login.html"/>">Logout</a>
+          <a class="btn btn-primary" href="/users/login.html">Logout</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript-->
-<%--  <script src="../theme/vendor/jquery/jquery.min.js"></script>--%>
-    <script src="<c:url value="/theme/vendor/jquery/jquery.min.js"/>"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="/theme/vendor/jquery/jquery.min.js"></script>
+    <script src="/theme/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <script src="<c:url value="/theme/vendor/bootstrap/js/bootstrap.bundle.min.js"/>"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="/theme/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-<%--  <script src="../theme/vendor/jquery-easing/jquery.easing.min.js"></script>--%>
-    <script src="<c:url value="/theme/vendor/jquery-easing/jquery.easing.min.js"/>"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="/theme/js/sb-admin-2.min.js"></script>
 
-  // <!-- Custom scripts for all pages-->
-  <script src="<c:url value="/theme/js/sb-admin-2.min.js"/>"></script>
+    <!-- Page level plugins -->
+    <script src="/theme/vendor/chart.js/Chart.min.js"></script>
 
-  <!-- Page level plugins -->
-<%--  <script src="../theme/vendor/chart.js/Chart.min.js"></script>--%>
-    <script src="<c:url value="/theme/vendor/chart.js/Chart.min.js"/>"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="<c:url value="/theme/js/demo/chart-area-demo.js"/>"></script>
-  <script src="<c:url value="/theme/js/demo/chart-pie-demo.js"/>"></script>
+    <!-- Page level custom scripts -->
+    <script src="/theme/js/demo/chart-area-demo.js"></script>
+    <script src="/theme/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

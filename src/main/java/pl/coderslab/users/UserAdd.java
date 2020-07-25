@@ -14,7 +14,7 @@ import java.io.IOException;
 public class UserAdd extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/users/add.jsp").forward(req,resp);
+        getServletContext().getRequestDispatcher("/users/add.jsp").forward(req, resp);
     }
 
     @Override
@@ -24,9 +24,9 @@ public class UserAdd extends HttpServlet {
         String password = req.getParameter("password");
 
         UserDao userDao = new UserDao();
-       userDao.create(new User(username,email,password));
+        userDao.create(new User(email, username, password));
 
-       resp.sendRedirect("/user/list");
+        resp.sendRedirect("/user/list");
 
     }
 }

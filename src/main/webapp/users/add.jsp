@@ -11,7 +11,7 @@
     <title>add</title>
 </head>
 <body>
-<form action="/users/add" method="post">
+<form action="/user/add" method="post">
     Let's add some new user!
     <label>
         Name:
