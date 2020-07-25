@@ -13,7 +13,7 @@ import java.io.IOException;
 public class UserDelete extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt( req.getParameter("id"));
+        int id = Integer.parseInt(req.getParameter("id"));
         UserDao userDao = new UserDao();
         userDao.delete(id);
         resp.sendRedirect("/user/list");

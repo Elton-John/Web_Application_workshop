@@ -1,21 +1,11 @@
 package pl.coderslab.utils;
 
-
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.sql.*;
 import java.util.Arrays;
 
 public class UserDao {
-
-//    public static Connection connectToWorkshop2() {
-//        try (Connection connToWorkshop2 = DBUtil.connect("workshop2")) {
-//            return connToWorkshop2;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return null;
-//    }
 
     private final String CREATE_USER_QUERY = "INSERT INTO users (email, username, password) VALUES (?,?,?);";
     private final String GET_ID_USER_QUERY = "SELECT id FROM users WHERE email LIKE 'unique_email';";
@@ -27,9 +17,8 @@ public class UserDao {
             preStmt.setString(2, user.getUsername());
             preStmt.setString(3, user.getPassword());
             preStmt.executeUpdate();
-           // user.setId(getIdFromDatabase(conn, GET_ID_USER_QUERY.replace("unique_email", user.getEmail())));
             ResultSet resultSet = preStmt.getGeneratedKeys();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 user.setId(resultSet.getInt(1));
             }
             return user;
@@ -38,7 +27,6 @@ public class UserDao {
         }
         return null;
     }
-
 
 
     private static final String READ_USER_QUERY = "SELECT email, username, password FROM users WHERE id =?";

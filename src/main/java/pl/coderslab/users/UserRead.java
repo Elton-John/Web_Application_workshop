@@ -15,9 +15,8 @@ public class UserRead extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         UserDao userDao = new UserDao();
-        req.setAttribute("user",userDao.read(id) );
+        req.setAttribute("user", userDao.read(id));
 
         getServletContext().getRequestDispatcher("/users/read.jsp").forward(req, resp);
-
     }
 }

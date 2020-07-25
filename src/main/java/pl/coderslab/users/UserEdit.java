@@ -14,7 +14,7 @@ import java.io.IOException;
 public class UserEdit extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id = Integer.parseInt(req.getParameter("id")) ;
+        int id = Integer.parseInt(req.getParameter("id"));
         UserDao userDao = new UserDao();
         User user = userDao.read(id);
         req.setAttribute("user", user);
@@ -27,13 +27,11 @@ public class UserEdit extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         int id = Integer.parseInt(req.getParameter("id"));
-        User user = new User(id, email, username,password);
 
+        User user = new User(id, email, username, password);
         UserDao userDao = new UserDao();
         userDao.update(user);
 
         resp.sendRedirect("/user/list");
-
-
     }
 }

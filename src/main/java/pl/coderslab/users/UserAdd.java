@@ -27,6 +27,5 @@ public class UserAdd extends HttpServlet {
         userDao.create(new User(email, username, password));
 
         resp.sendRedirect("/user/list");
-
     }
 }
