@@ -353,12 +353,12 @@
   </form>
 
     <form action="/user/edit" method="post">
-  <input type="hidden" name="id" value="${user.id}">
+  <input type="hidden" name="user" value="${user}">
   <button type="submit">Edytuj</button>
 </form>
 
   <form action="/user/read" method="post">
-    <input type="hidden" name="user" value="${user}">
+    <input type="hidden" name="id" value="${user.id}">
     <button type="submit">Pokaż</button>
   </form>
 
