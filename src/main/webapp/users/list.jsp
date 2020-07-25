@@ -352,8 +352,8 @@
     <button type="submit">Usuń</button>
   </form>
 
-    <form action="/user/edit" method="post">
-  <input type="hidden" name="user" value="${user}">
+    <form action="/user/edit" method="get">
+  <input type="hidden" name="id" value="${user.id}">
   <button type="submit">Edytuj</button>
 </form>
 
