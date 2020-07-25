@@ -6,26 +6,28 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>add</title>
-</head>
-<body>
-<form action="/user/add" method="post">
-    Let's add some new user!
-    <label>
-        Name:
-        <input type="text" name="username">
-    </label>
-    <label>
-        email:
-        <input type="text" name="email">
-    </label>
-    <label>
-        Password:
-        <input type="text" name="password">
-    </label>
-    <button type="submit">save</button>
+<%@include file="header.jsp" %>
+
+<div class="card-body">
+    <form action="/user/add" method="post">
+        <label>Name</label>
+        <div class="input-group mb-3">
+
+            <input type="text" class="form-control" name="username">
+        </div>
+
+        <label>Email</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="email">
+        </div>
+
+        <label>Password</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="password">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+</div>
 </form>
-</body>
-</html>
+
+<%@include file="footer.jsp" %>
