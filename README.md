@@ -11,8 +11,11 @@ MIT license (It lets people do almost anything they want with the project, like 
 
 # This is how it works
  
- 
+![alt text](https://github.com/Elton-John/Web_Application_workshop/blob/master/src/main/webapp/theme/img/sampleInteraction.gif) 
+
+
 :green_heart: You can:
+
 * :star2: **create**, 
 * :star2: **modify** and 
 * :star2: **delete** users 
