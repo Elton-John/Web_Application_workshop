@@ -1,7 +1,7 @@
-package pl.coderslab.users;
+package pl.coderslab.web;
 
-import pl.coderslab.utils.User;
-import pl.coderslab.utils.UserDao;
+import pl.coderslab.entity.User;
+import pl.coderslab.dao.UserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

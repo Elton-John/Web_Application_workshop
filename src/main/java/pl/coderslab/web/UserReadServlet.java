@@ -1,6 +1,6 @@
-package pl.coderslab.users;
+package pl.coderslab.web;
 
-import pl.coderslab.utils.UserDao;
+import pl.coderslab.dao.UserDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,13 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/user/delete")
-public class UserDeleteServlet extends HttpServlet {
+@WebServlet("/user/read")
+public class UserReadServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
         UserDao userDao = new UserDao();
-        userDao.delete(id);
-        resp.sendRedirect("/user/list");
+        req.setAttribute("user", userDao.read(id));
+
+        getServletContext().getRequestDispatcher("/users/read.jsp").forward(req, resp);
     }
 }

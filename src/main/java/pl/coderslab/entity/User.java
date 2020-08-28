@@ -1,4 +1,4 @@
-package pl.coderslab.utils;
+package pl.coderslab.entity;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -14,7 +14,7 @@ public class User {
     public User(String email, String username, String password) {
         this.email = email;
         this.username = username;
-        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+        this.password = password;
     }
 
     public User(int id, String email, String username, String password) {
@@ -53,7 +53,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = BCrypt.hashpw(password, BCrypt.gensalt());
+        this.password = password;
     }
 
     @Override
